@@ -1,0 +1,8 @@
+node_modules/
+src/
+test/
+.env
+*.log
+*.ts
+README.md
+pnpm-lock.yaml
