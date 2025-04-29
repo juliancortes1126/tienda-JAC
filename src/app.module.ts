@@ -2,9 +2,15 @@ import { Module } from '@nestjs/common';
 import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { StockModule } from './stock/stock.module';
+import { TransactionsModule } from './transactions/transactions.module';
+import { TokenizeCardModule } from './tokenize-card/tokenize-card.module';
+import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
+import { ProcessPaymentModule } from './process-payment/process-payment.module';
 
 @Module({
-  imports: [ProductsModule,
+  imports: [ConfigModule.forRoot({isGlobal: true})
+    , HttpModule, 
     TypeOrmModule.forRoot({
       type: "mysql",
       host: "localhost",
@@ -15,7 +21,11 @@ import { StockModule } from './stock/stock.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    StockModule
+    ProductsModule,
+    StockModule,
+    TransactionsModule,
+    TokenizeCardModule,
+    ProcessPaymentModule
   ],
   controllers: [],
   providers: [],

@@ -3,12 +3,11 @@ import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
-import { RegisterProductUseCase } from 'src/usecases/RegisterProductUseCase';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Product])],
   controllers: [ProductsController],
-  providers: [ProductsService, RegisterProductUseCase],
+  providers: [ProductsService],
   exports: [TypeOrmModule]
 })
 export class ProductsModule {}
