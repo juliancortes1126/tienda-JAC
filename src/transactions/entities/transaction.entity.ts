@@ -1,5 +1,5 @@
 import { Product } from "src/products/entities/product.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Transaction {
@@ -33,7 +33,7 @@ export class Transaction {
     @Column()
     valuePurchase: number;
 
-    @Column()
+    @CreateDateColumn({ type: 'timestamp' })
     datePurchase: Date;
 
     @Column()

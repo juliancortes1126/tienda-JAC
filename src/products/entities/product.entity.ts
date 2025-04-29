@@ -1,4 +1,5 @@
 import { Stock } from "src/stock/entities/stock.entity";
+import { Transaction } from "src/transactions/entities/transaction.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -17,5 +18,8 @@ export class Product {
     status: number;
 
     @OneToMany(()=>Stock,(stock)=>stock.product)
-    stockList: Stock[]
+    stockList: Stock[];
+
+    @OneToMany(()=>Transaction, (transaction)=>transaction.product)
+    transactionList: Transaction;
 }
