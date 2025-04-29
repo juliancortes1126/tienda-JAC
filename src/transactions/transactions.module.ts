@@ -10,5 +10,6 @@ import { HttpModule } from '@nestjs/axios';
    imports: [ConfigModule, HttpModule, TypeOrmModule.forFeature([Transaction])],
   controllers: [TransactionsController],
   providers: [TransactionsService],
+  exports:[TransactionsService]
 })
 export class TransactionsModule {}

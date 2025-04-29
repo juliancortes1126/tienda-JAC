@@ -15,7 +15,7 @@ export class CreateTransactionDto {
         
     phoneCustomer: string;
     
-    product: Product;
+    idProduct: number;
         
     quantity: number;
         
